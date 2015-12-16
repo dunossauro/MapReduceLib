@@ -4,7 +4,7 @@
 """
     About mapreducelib
 
-Version:    0.2.1 (Dec/2015)
+Version:    0.2.2 (Dec/2015)
 Author:     Eduardo Mendes (z4r4tu5tr4)
 Oficial:    Github.com/z4r4tu5tr4/mapreducelib
 License:    GPLv3
@@ -41,16 +41,16 @@ class hdfs:
         os.system(("mv part-00000 %s.dat")%(name))
 
     def cat(self, file):
-    	system(("%s -cat /%s")%(self.hdfs,file))
+    	os.system(("%s -cat /%s")%(self.hdfs,file))
 
     def chgrp(self, mode, file):
-    	system(("%s -chgrp %s /%s")%(self.hdfs,mode,file))
+    	os.system(("%s -chgrp %s /%s")%(self.hdfs,mode,file))
 
     def chmod(self, mode,file):
-    	system(("%s -chmod %s /%s")%(self.hdfs,mode,file))
+    	os.system(("%s -chmod %s /%s")%(self.hdfs,mode,file))
 
     def chown(self, mode,file):
-    	system(("%s -chown %s /%s")%(self.hdfs,mode,file))
+    	os.system(("%s -chown %s /%s")%(self.hdfs,mode,file))
 
 class hadoop:
     def __init__(self, hadoop_sbin="/usr/local/hadoop/sbin"):
@@ -98,7 +98,8 @@ class hadoop:
 
 class map_reduce:
     def __init__(self,
-                hadoop_streaming="/usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-2.*.jar"
+                hadoop_streaming="/usr/local/hadoop/share/hadoop\
+                /tools/lib/hadoop-streaming-2.*.jar"
                 hadoop_dir="/usr/local/hadoop/bin/hadoop"):
 
         self.streaming = hadoop_streaming
@@ -111,7 +112,8 @@ class map_reduce:
     	-mapper %s \
     	-reducer %s \
     	-input /%s \
-    	-output /%s")%(self.hadoop,self.streaming,mapper,reducer,_input,output)
+    	-output /%s")%(self.hadoop,self.streaming,
+                        mapper,reducer,_input,output)
 
     def run_map(self, mapper,
                 _input, output):
@@ -119,7 +121,8 @@ class map_reduce:
         os.system(("%s jar %s \
     	-mapper %s \
     	-input /%s \
-    	-output /%s")%(self.hadoop,self.streaming,mapper,reducer,_input,output)
+    	-output /%s")%(self.hadoop,self.streaming,mapper,
+                        reducer,_input,output)
 
     def run_map_combiner_reduce(self, mapper, combiner,
                                 reducer, _input, output):
@@ -129,12 +132,9 @@ class map_reduce:
     	-reducer %s \
         -combiner %s \
     	-input /%s \
-    	-output /%s")%(self.hadoop,self.streaming,mapper, combiner,reducer,_input,output)
+    	-output /%s")%(self.hadoop,self.streaming,mapper,
+                        combiner,reducer,_input,output)
 
     def run_pass_flags(self, parameter):
-        """
-        here you can you only parameter,
-        but you need write all streaming command
-        before streaming
-        """
+
         os.system(("%s jar %s %s")%(self.hadoop, self.streaming, parameter))
