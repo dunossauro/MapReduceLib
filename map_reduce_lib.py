@@ -4,7 +4,7 @@
 """
     About mapreducelib
 
-Version:    0.2.2 (Dec/2015)
+Version:    0.2.3 (Dec/2015)
 Author:     Eduardo Mendes (z4r4tu5tr4)
 Oficial:    Github.com/z4r4tu5tr4/mapreducelib
 License:    GPLv3
@@ -19,13 +19,13 @@ class hdfs:
         self.hdfs = hdfs_local
 
     def mkdir(self, local):
-        os.system(("%s -mkdir %s")%(self.hdfs, local)
+        os.system(("%s -mkdir %s")%(self.hdfs, local))
 
-    def ls(self, dir='/'):
-    	if dir != '/':
-    		os.system(("%s -ls /%s")%(self.hdfs,dir))
-    	else:
-    		os.system(("%s -ls /")%(self.hdfs))
+    def ls(self, dir="/"):
+        if dir != '/':
+            os.system(("%s -ls /%s")%(self.hdfs,dir))
+        else:
+            os.system(("%s -ls /")%(self.hdfs))
 
     def rm(self, dir):
     	os.system(("%s -rm /%s")%(self.hdfs,dir))
@@ -99,7 +99,7 @@ class hadoop:
 class map_reduce:
     def __init__(self,
                 hadoop_streaming="/usr/local/hadoop/share/hadoop\
-                /tools/lib/hadoop-streaming-2.*.jar"
+                /tools/lib/hadoop-streaming-2.*.jar",
                 hadoop_dir="/usr/local/hadoop/bin/hadoop"):
 
         self.streaming = hadoop_streaming
@@ -113,7 +113,7 @@ class map_reduce:
     	-reducer %s \
     	-input /%s \
     	-output /%s")%(self.hadoop,self.streaming,
-                        mapper,reducer,_input,output)
+                        mapper,reducer,_input,output))
 
     def run_map(self, mapper,
                 _input, output):
@@ -122,7 +122,7 @@ class map_reduce:
     	-mapper %s \
     	-input /%s \
     	-output /%s")%(self.hadoop,self.streaming,mapper,
-                        reducer,_input,output)
+                        reducer,_input,output))
 
     def run_map_combiner_reduce(self, mapper, combiner,
                                 reducer, _input, output):
@@ -133,7 +133,7 @@ class map_reduce:
         -combiner %s \
     	-input /%s \
     	-output /%s")%(self.hadoop,self.streaming,mapper,
-                        combiner,reducer,_input,output)
+                        combiner,reducer,_input,output))
 
     def run_pass_flags(self, parameter):
 
