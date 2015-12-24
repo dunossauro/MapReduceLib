@@ -4,10 +4,11 @@
 """
     About mapreducelib
 
-Version:    0.2.3 (Dec/2015)
+Version:    0.2.4 (Dec/2015)
 Author:     Eduardo Mendes (z4r4tu5tr4)
 Oficial:    Github.com/z4r4tu5tr4/mapreducelib
 License:    GPLv3
+Support:    Python (2.7 ~ 3.5)
 """
 
 import os
@@ -86,12 +87,12 @@ class hadoop:
     def yarn_stop(self,):
         os.system(("%s/stop-yarn.sh")%(self.sbin))
 
-    def format_namenode():
+    def format_namenode(self,):
         s_n = input("Deseja realmente formatar o seu HDFS? (S/N)")
         if s_n == "S" or "s":
             os.system("/usr/local/hadoop/bin/hdfs namenode -format")
 
-    def format_datanode():
+    def format_datanode(self,):
         s_n = input("Deseja realmente formatar o seu HDFS? (S/N)")
         if s_n == "S" or "s":
             os.system("/usr/local/hadoop/bin/hdfs datanode -format")
