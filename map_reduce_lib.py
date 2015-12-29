@@ -4,7 +4,7 @@
 """
     About mapreducelib
 
-Version:    0.2.4 (Dec/2015)
+Version:    0.2.5 (Dec/2015)
 Author:     Eduardo Mendes (z4r4tu5tr4)
 Oficial:    Github.com/z4r4tu5tr4/mapreducelib
 License:    GPLv3
@@ -34,7 +34,7 @@ class hdfs:
     def rm_dir(self, dir):
         os.system(("%s -rm -r /%s")%(self.hdfs,dir))
 
-    def put(files,dir):
+    def put(self, files,dir):
         os.system(("%s -put %s /%s")%(self.hdfs,files,dir))
 
     def get(self, dir, name):
