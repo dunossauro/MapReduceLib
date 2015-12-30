@@ -4,7 +4,7 @@
 """
     About mapreducelib
 
-Version:    0.2.5 (Dec/2015)
+Version:    0.2.6 (Dec/2015)
 Author:     Eduardo Mendes (z4r4tu5tr4)
 Oficial:    Github.com/z4r4tu5tr4/mapreducelib
 License:    GPLv3
@@ -24,34 +24,33 @@ class hdfs:
 
     def ls(self, dir="/"):
         if dir != '/':
-            os.system(("%s -ls /%s")%(self.hdfs,dir))
+            os.system(("%s -ls %s")%(self.hdfs,dir))
         else:
             os.system(("%s -ls /")%(self.hdfs))
 
     def rm(self, dir):
-    	os.system(("%s -rm /%s")%(self.hdfs,dir))
+    	os.system(("%s -rm %s")%(self.hdfs,dir))
 
     def rm_dir(self, dir):
-        os.system(("%s -rm -r /%s")%(self.hdfs,dir))
+        os.system(("%s -rm -r %s")%(self.hdfs,dir))
 
-    def put(self, files,dir):
-        os.system(("%s -put %s /%s")%(self.hdfs,files,dir))
+    def put(self, files, dir):
+        os.system(("%s -put %s %s")%(self.hdfs,files,dir))
 
-    def get(self, dir, name):
-        os.system(("%s -get /%s/part-00000 .")%(self.hdfs,dir))
-        os.system(("mv part-00000 %s.dat")%(name))
+    def get(self, dir):
+        os.system(("%s -get %s/* .")%(self.hdfs,dir))
 
     def cat(self, file):
-    	os.system(("%s -cat /%s")%(self.hdfs,file))
+    	os.system(("%s -cat %s")%(self.hdfs,file))
 
     def chgrp(self, mode, file):
-    	os.system(("%s -chgrp %s /%s")%(self.hdfs,mode,file))
+    	os.system(("%s -chgrp %s %s")%(self.hdfs,mode,file))
 
     def chmod(self, mode,file):
-    	os.system(("%s -chmod %s /%s")%(self.hdfs,mode,file))
+    	os.system(("%s -chmod %s %s")%(self.hdfs,mode,file))
 
     def chown(self, mode,file):
-    	os.system(("%s -chown %s /%s")%(self.hdfs,mode,file))
+    	os.system(("%s -chown %s %s")%(self.hdfs,mode,file))
 
 class hadoop:
     def __init__(self, hadoop_sbin="/usr/local/hadoop/sbin"):
