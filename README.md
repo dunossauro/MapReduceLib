@@ -1,2 +1,6 @@
 # MapReduceLib
-Tool for use Hadoop tasks, Hadoop streaming and HDFS file using python 3 or pyspark
+Tool in Python to generate MapReduce jobs, file transfers in HDFS and assist administrative functions of Hadoop using pySpark or Python terminal
+
+## Usage
+
+## Configuration
