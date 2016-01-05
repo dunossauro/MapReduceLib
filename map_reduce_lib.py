@@ -8,47 +8,59 @@ Version:    0.2.6 (Dec/2015)
 Author:     Eduardo Mendes (z4r4tu5tr4)
 Oficial:    Github.com/z4r4tu5tr4/mapreducelib
 License:    GPLv3
-Support:    Python (2.7 ~ 3.5)
+Support:    Python (2.7+ ~ 3.5+)
 """
 
 import os
 
 
 class hdfs:
+    """ Class for manipulate HDFS files and directores"""
 
+    # -------------- Set your Hadoop binary
     def __init__(self,hdfs_local="/usr/local/hadoop/bin/hadoop fs"):
         self.hdfs = hdfs_local
 
+    # -------------- Make a new directory in HDFS
     def mkdir(self, local):
         os.system(("%s -mkdir %s")%(self.hdfs, local))
 
+    # -------------- List a directory in HDFS
     def ls(self, dir="/"):
         if dir != '/':
             os.system(("%s -ls %s")%(self.hdfs,dir))
         else:
             os.system(("%s -ls /")%(self.hdfs))
 
+    # -------------- Remove files
     def rm(self, dir):
     	os.system(("%s -rm %s")%(self.hdfs,dir))
 
+    # -------------- Remove directory
     def rm_dir(self, dir):
         os.system(("%s -rm -r %s")%(self.hdfs,dir))
 
+    # -------------- Trasfer local files to HDFS
     def put(self, files, dir):
         os.system(("%s -put %s %s")%(self.hdfs,files,dir))
 
+    # -------------- Trasfer HDFS files to local FS
     def get(self, dir):
         os.system(("%s -get %s/* .")%(self.hdfs,dir))
 
+    # -------------- Print file on STDOUT
     def cat(self, file):
     	os.system(("%s -cat %s")%(self.hdfs,file))
 
+    # -------------- Change group in a file
     def chgrp(self, mode, file):
     	os.system(("%s -chgrp %s %s")%(self.hdfs,mode,file))
 
+    # -------------- Change persions in a file or directory
     def chmod(self, mode,file):
     	os.system(("%s -chmod %s %s")%(self.hdfs,mode,file))
 
+    # -------------- Change group in a file
     def chown(self, mode,file):
     	os.system(("%s -chown %s %s")%(self.hdfs,mode,file))
 
