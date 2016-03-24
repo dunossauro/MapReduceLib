@@ -24,34 +24,33 @@ class hdfs:
 
     def ls(self, dir="/"):
         if dir != '/':
-            system(("%s -ls /%s")%(self.hdfs,dir))
+            system(("%s -ls %s")%(self.hdfs,dir))
         else:
             system(("%s -ls /")%(self.hdfs))
 
     def rm(self, dir):
-    	system(("%s -rm /%s")%(self.hdfs,dir))
+    	system(("%s -rm %s")%(self.hdfs,dir))
 
     def rm_dir(self, dir):
-        system(("%s -rm -r /%s")%(self.hdfs,dir))
+        system(("%s -rm -r %s")%(self.hdfs,dir))
 
     def put(self, files,dir):
-        system(("%s -put %s /%s")%(self.hdfs,files,dir))
+        system(("%s -put %s %s")%(self.hdfs,files,dir))
 
-    def get(self, dir, name):
-        system(("%s -get /%s/part-00000 .")%(self.hdfs,dir))
-        system(("mv part-00000 %s.dat")%(name))
+    def get(self, name):
+        system(("%s -get %s .")%(self.hdfs,name))
 
     def cat(self, file):
-    	system(("%s -cat /%s")%(self.hdfs,file))
+    	system(("%s -cat %s")%(self.hdfs,file))
 
     def chgrp(self, mode, file):
-    	system(("%s -chgrp %s /%s")%(self.hdfs,mode,file))
+    	system(("%s -chgrp %s %s")%(self.hdfs,mode,file))
 
     def chmod(self, mode,file):
-    	system(("%s -chmod %s /%s")%(self.hdfs,mode,file))
+    	system(("%s -chmod %s %s")%(self.hdfs,mode,file))
 
     def chown(self, mode,file):
-    	system(("%s -chown %s /%s")%(self.hdfs,mode,file))
+    	system(("%s -chown %s %s")%(self.hdfs,mode,file))
 
 class hadoop:
     def __init__(self, hadoop_sbin="/usr/local/hadoop/sbin"):
