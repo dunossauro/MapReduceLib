@@ -8,7 +8,7 @@ Version:    0.2.7 (Dec/2015)
 Author:     Eduardo Mendes (z4r4tu5tr4)
 Oficial:    Github.com/z4r4tu5tr4/mapreducelib
 License:    GPLv3
-Support:    Python (2.7 ~ 3.5)
+Support:    Python (2.7+ ~ 3.5+)
 """
 
 from os import system
@@ -87,13 +87,13 @@ class hadoop:
         system(("%s/stop-yarn.sh")%(self.sbin))
 
     def format_namenode(self,):
-        s_n = input("Deseja realmente formatar o seu HDFS? (S/N)")
-        if s_n == "S" or "s":
+        key = input("Do you really want to format your namenode? (Y/N)")
+        if key.lower() == 'y':
             system("/usr/local/hadoop/bin/hdfs namenode -format")
 
     def format_datanode(self,):
-        s_n = input("Deseja realmente formatar o seu HDFS? (S/N)")
-        if s_n == "S" or "s":
+        key = input("Do you really want to format your datanode? (Y/N)")
+        if key.lower() == 'y':
             system("/usr/local/hadoop/bin/hdfs datanode -format")
 
 class map_reduce:
