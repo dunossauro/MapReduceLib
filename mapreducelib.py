@@ -14,7 +14,7 @@ Support:    Python (2.7+ ~ 3.5+)
 from os import system
 
 
-class hdfs:
+class Hdfs:
 
     def __init__(self,hdfs_local="/usr/local/hadoop/bin/hadoop fs"):
         self.hdfs = hdfs_local
@@ -52,7 +52,7 @@ class hdfs:
     def chown(self, mode,file):
     	system(("%s -chown %s %s")%(self.hdfs,mode,file))
 
-class hadoop:
+class Hadoop:
     def __init__(self, hadoop_sbin="/usr/local/hadoop/sbin"):
         self.sbin = hadoop_sbin
 
@@ -96,7 +96,7 @@ class hadoop:
         if key.lower() == 'y':
             system("/usr/local/hadoop/bin/hdfs datanode -format")
 
-class map_reduce:
+class MapReduce:
     def __init__(self,
                 hadoop_streaming="/usr/local/hadoop/share/hadoop\
                 /tools/lib/hadoop-streaming-2.*.jar",
