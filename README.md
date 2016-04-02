@@ -66,13 +66,13 @@ job.run_map(<mapper_file>, <input_dir>, <output_dir>)
 # run_map("map.py","data","out",)
 
 job.run_map_combiner_reduce(<mapper_file>, <combiner_file>, <reducer_file>, <input_dir>, <output_dir>)
-#run_map("map.py","reduce.py","reduce.py","data","out")
+# job.run_map_combiner_reduce("map.py","reduce.py","reduce.py","data","out")
 
 job.run_map_reduce(<mapper_file>, <reducer_file>, <input_dir>, <output_dir>)
-#run_map("map.py","reduce.py","data","out")
+# job.run_map_reduce("map.py","reduce.py","data","out")
 
 job.run_pass_flags(<Parameter>)
-#run_map("\
+# job.run_pass_flags("\
 -mapper `pwd`/map.py \
 -reducer `pwd`/reduce.py \
 -input /data/* \
