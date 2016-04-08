@@ -5,7 +5,8 @@ Python Tool which generates MapReduce jobs, file transfer in HDFS and assists Ha
   - Python 2.6+ and 3.2+
   - pySpark 1.5+
 
-## Usage
+
+## [Usage] (https://github.com/z4r4tu5tr4/MapReduceLib/blob/master/examples.md)
 
 #### Administration tasks
 
