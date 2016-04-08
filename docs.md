@@ -1,6 +1,6 @@
 # Simple Doc
 
-All class make interaction with the Bash using `os.system`
+all classes interacts with Bash using `os.system`
 
 Ex:
 
@@ -22,11 +22,11 @@ class Hadoop:
     def __init__(self, hadoop_sbin="/usr/local/hadoop/sbin"):
         self.sbin = hadoop_sbin
 ```
-I chose to use '/usr/local/hadoop' because the official documentation of Hadoop recommends that directory. But you can modify the .py file in the init method or set in runtime
+I've chosen to use '/usr/local/hadoop' because the official documentation of Hadoop recommends that directory. But you can modify the .py file in the init method or set in runtime
 
 `hadoop_sbin = <your_dir>`
 
-Using Hadoop class you can use their methods, like direct interactions with Bash in python or pySpark Terminal
+Using Hadoop class you can use its methods, such as direct interactions with Bash in python or pySpark Terminal
 
 ```
 from mapreducelib import Hadoop
