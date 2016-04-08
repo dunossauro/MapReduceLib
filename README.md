@@ -1,4 +1,4 @@
-# MapReduceLib
+# MapReduceLib [![Build Status](https://travis-ci.org/z4r4tu5tr4/MapReduceLib.svg?branch=master)](https://travis-ci.org/z4r4tu5tr4/MapReduceLib)
 Python Tool which generates MapReduce jobs, file transfer in HDFS and assists Hadoop administrative functions.
 
 ## Support
