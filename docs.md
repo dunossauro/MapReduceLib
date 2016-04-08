@@ -26,7 +26,7 @@ I chose to use '/usr/local/hadoop' because the official documentation of Hadoop 
 
 `hadoop_sbin = <your_dir>`
 
-Using Hadoop class you can use their methods, like direct interactions with Bash in python or Spark Terminal
+Using Hadoop class you can use their methods, like direct interactions with Bash in python or pySpark Terminal
 
 ```
 from mapreducelib import Hadoop
