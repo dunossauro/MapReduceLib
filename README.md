@@ -10,7 +10,7 @@ Python Tool which generates MapReduce jobs, file transfer in HDFS and assists Ha
 
 #### Administration tasks
 
-```
+```python
 from mapreducelib import Hadoop
 
 hadoop = Hadoop()   # You can set your Hadoop sbin dir, ex: Hadoop("/usr/local/hadoop/sbin")
@@ -34,7 +34,7 @@ hadoop.format_namenode()
 ```
 
 #### HDFS Functions
-```
+```python
 hdfs = Hdfs()   # You can set your Hadoop bin dir, ex: Hdfs("/usr/local/hadoop/bin/hadoop fs")
 
 hdfs.cat(<file>)
@@ -58,9 +58,9 @@ hdfs.rm(<file>)
 hdfs.rm_dir(<dir>)
 ```
 #### MapReduce Functions
-```
+```python
 job = MapReduce()   # You can set your Streaming and Hadoop dirs, ex: 
-                    # MapReduce("/usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-2.*.jar",               
+                    # MapReduce("/usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-2.*.jar", 
                                 "/usr/local/hadoop/bin/hadoop")
 
 job.run_map(<mapper_file>, <input_dir>, <output_dir>)
