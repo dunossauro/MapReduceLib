@@ -4,7 +4,7 @@ all classes interacts with Bash using `os.system`
 
 Ex:
 
-```
+```python
 from os import system
 hadoop_sbin = "/usr/local/hadoop/sbin/"
 hadoop_fs = "/usr/local/hadoop/bin/hadoop fs"
@@ -17,7 +17,7 @@ system("{exec} {func} {dir}".format(exec=hadoop_fs, func="ls", dir="/"))
 
 The Hadoop class is an interface for all interactions sbin directory
 
-```
+```python
 class Hadoop:
     def __init__(self, hadoop_sbin="/usr/local/hadoop/sbin"):
         self.sbin = hadoop_sbin
@@ -28,7 +28,7 @@ I've chosen to use '/usr/local/hadoop' because the official documentation of Had
 
 Using Hadoop class you can use its methods, such as direct interactions with Bash in python or pySpark Terminal
 
-```
+```python
 from mapreducelib import Hadoop
 
 hadoop = Hadoop()
@@ -39,7 +39,7 @@ hadoop.dfs_start()
 
 Using Hadoop class you can also format and balance your HDFS
 
-```
+```python
 hadoop.balancer_start()
 hadoop.format_namenode()
 hadoop.format_datanode()
