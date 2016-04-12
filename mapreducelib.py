@@ -98,8 +98,7 @@ class Hadoop:
 
 class MapReduce:
     def __init__(self,
-                hadoop_streaming="/usr/local/hadoop/share/hadoop\
-                /tools/lib/hadoop-streaming-2.*.jar",
+                hadoop_streaming="/usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-2.*.jar",
                 hadoop_dir="/usr/local/hadoop/bin/hadoop"):
 
         self.streaming = hadoop_streaming
