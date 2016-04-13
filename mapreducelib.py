@@ -4,7 +4,7 @@
 """
     About mapreducelib
 
-Version:    0.2.7 (Dec/2015)
+Version:    0.2.8 (Dec/2015)
 Author:     Eduardo Mendes (z4r4tu5tr4)
 Oficial:    Github.com/z4r4tu5tr4/mapreducelib
 License:    GPLv3
@@ -110,8 +110,8 @@ class MapReduce:
     	system(("%s jar %s \
     	-mapper %s \
     	-reducer %s \
-    	-input /%s \
-    	-output /%s")%(self.hadoop,self.streaming,
+    	-input %s \
+    	-output %s")%(self.hadoop,self.streaming,
                         mapper,reducer,_input,output))
 
     def run_map(self, mapper,
@@ -119,8 +119,8 @@ class MapReduce:
 
         system(("%s jar %s \
     	-mapper %s \
-    	-input /%s \
-    	-output /%s")%(self.hadoop,self.streaming,mapper,
+    	-input %s \
+    	-output %s")%(self.hadoop,self.streaming,mapper,
                         reducer,_input,output))
 
     def run_map_combiner_reduce(self, mapper, combiner,
@@ -130,8 +130,8 @@ class MapReduce:
     	-mapper %s \
     	-reducer %s \
         -combiner %s \
-    	-input /%s \
-    	-output /%s")%(self.hadoop,self.streaming,mapper,
+    	-input %s \
+    	-output %s")%(self.hadoop,self.streaming,mapper,
                         combiner,reducer,_input,output))
 
     def run_pass_flags(self, parameter):
