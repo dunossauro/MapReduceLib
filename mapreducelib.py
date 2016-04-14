@@ -121,7 +121,7 @@ class MapReduce:
     	-mapper %s \
     	-input %s \
     	-output %s")%(self.hadoop,self.streaming,mapper,
-                        reducer,_input,output))
+                        _input,output))
 
     def run_map_combiner_reduce(self, mapper, combiner,
                                 reducer, _input, output):
